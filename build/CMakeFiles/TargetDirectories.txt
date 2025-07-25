@@ -1,0 +1,3 @@
+/home/elpatatone/Programming/graphics/build/CMakeFiles/main.dir
+/home/elpatatone/Programming/graphics/build/CMakeFiles/edit_cache.dir
+/home/elpatatone/Programming/graphics/build/CMakeFiles/rebuild_cache.dir
