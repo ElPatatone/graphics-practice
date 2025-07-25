@@ -1,1 +1,1 @@
-This is a place for me to practice GPU programming
+This is a place for me to practice GPU programming concepts 
