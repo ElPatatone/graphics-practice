@@ -1,6 +1,9 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);  
+
 int main (int argc, char *argv[]) {
     std::cout << "hello world" << std::endl;
 
@@ -9,12 +12,13 @@ int main (int argc, char *argv[]) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Learning to use the GPU", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create the GLFW window" << std::endl;
         return -1;
     }
     glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cout << "Failed to initialize GLAD" << std::endl;
@@ -27,6 +31,7 @@ int main (int argc, char *argv[]) {
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+
     int result = glfwWindowShouldClose(window);
     std::cout << "Window has been closed" << std::endl;
     std::cout << "value: " << result << std::endl;
@@ -34,3 +39,8 @@ int main (int argc, char *argv[]) {
     glfwTerminate();
     return 0;
 }
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
+
